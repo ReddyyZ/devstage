@@ -1,15 +1,35 @@
+"use client";
+
 import { Button } from "@/components/button";
 import { InputField, InputIcon, InputRoot } from "@/components/input";
 import { ArrowRight, Mail, User } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const subscriptionSchema = z.object({
+  name: z.string().min(2, "Digite seu nome completo"),
+  email: z.string().email("Digite um email válido"),
+});
+
+type SubscriptionSchema = z.infer<typeof subscriptionSchema>;
 
 export function SubscriptionForm() {
-  function onSubscribe(data: FormData) {
-    const values = Object.fromEntries(data.entries());
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SubscriptionSchema>({
+    resolver: zodResolver(subscriptionSchema),
+  });
+
+  function onSubscribe(data: any) {
+    console.log(data);
   }
 
   return (
     <form
-      action=""
+      onSubmit={handleSubmit(onSubscribe)}
       className="w-full space-y-6 rounded-2xl border border-gray-600 bg-gray-700 p-8 md:max-w-[440px]"
     >
       <h2 className="font-heading text-xl font-semibold text-gray-100">
@@ -17,19 +37,39 @@ export function SubscriptionForm() {
       </h2>
 
       <div className="space-y-3">
-        <InputRoot>
-          <InputIcon>
-            <User />
-          </InputIcon>
-          <InputField name="name" type="text" placeholder="Nome completo" />
-        </InputRoot>
+        <div className="space-y-2">
+          <InputRoot error={!!errors?.name}>
+            <InputIcon>
+              <User />
+            </InputIcon>
+            <InputField
+              type="text"
+              placeholder="Nome completo"
+              {...register("name")}
+            />
+          </InputRoot>
 
-        <InputRoot>
-          <InputIcon>
-            <Mail />
-          </InputIcon>
-          <InputField name="email" type="email" placeholder="Email" />
-        </InputRoot>
+          {errors?.name && (
+            <p className="text-danger text-sm">{errors.name.message}</p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <InputRoot error={!!errors?.email}>
+            <InputIcon>
+              <Mail />
+            </InputIcon>
+            <InputField
+              type="email"
+              placeholder="Email"
+              {...register("email")}
+            />
+          </InputRoot>
+
+          {errors?.email && (
+            <p className="text-danger text-sm">{errors.email.message}</p>
+          )}
+        </div>
       </div>
 
       <Button type="submit">
