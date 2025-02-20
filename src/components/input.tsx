@@ -22,9 +22,7 @@ export function InputIcon(props: InputIconProps) {
     <span
       className="group-data-[error=true]:text-danger text-gray-400 group-focus-within:text-gray-100 group-[&:not(has(input:placeholder-shown))]:text-gray-100"
       {...props}
-    >
-      <Mail />
-    </span>
+    />
   );
 }
 
