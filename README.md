@@ -97,25 +97,15 @@ Sou um desenvolvedor full-stack apaixonado por tecnologia e construção de solu
 
 ### 🌎 Onde me encontrar:
 
-<table>
-  <tr>
-    <td>
-      <a href="https://www.linkedin.com/in/arthurc-oli">
-        <img src="https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/ReddyyZ">
-        <img src="https://img.shields.io/badge/-GitHub-black?style=for-the-badge&logo=github" alt="GitHub" />
-      </a>
-    </td>
-    <td>
-      <a href="https://reddyyz.github.io/portfolio">
-        <img src="https://img.shields.io/badge/-Portfólio-563D7C?style=for-the-badge&logo=react" alt="Portfólio" />
-      </a>
-    </td>
-  </tr>
-</table>
+<a href="https://www.linkedin.com/in/arthurc-oli">
+  <img src="https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
+</a>
+<a href="https://github.com/ReddyyZ">
+  <img src="https://img.shields.io/badge/-GitHub-black?style=for-the-badge&logo=github" alt="GitHub" />
+</a>
+<a href="https://reddyyz.github.io/portfolio">
+  <img src="https://img.shields.io/badge/-Portfólio-563D7C?style=for-the-badge&logo=react" alt="Portfólio" />
+</a>
 
 ---
 
