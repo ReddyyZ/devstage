@@ -1,12 +1,20 @@
 import Image from "next/image";
-import logo from "../../assets/logo.svg";
+import logo from "../../../assets/logo.svg";
 
 import { Ranking } from "./ranking";
 import { Stats } from "./stats";
 import InviteLinkInput from "./invite-input";
 
-export default function InvitePage() {
-  const inviteLink = "http://localhost:3000/invite/abcdefghijk";
+interface InvitePageProps {
+  params: Promise<{
+    subscriberId: string;
+  }>;
+}
+
+export default async function InvitePage(props: InvitePageProps) {
+  const { subscriberId } = await props.params;
+
+  const inviteLink = `http://localhost:3333/invites/${subscriberId}`;
 
   return (
     <div className="flex min-h-dvh flex-col items-center justify-between gap-16 md:flex-row">
@@ -35,7 +43,7 @@ export default function InvitePage() {
           <InviteLinkInput inviteLink={inviteLink} />
         </div>
 
-        <Stats />
+        <Stats subscriberId={subscriberId} />
       </div>
 
       <Ranking />

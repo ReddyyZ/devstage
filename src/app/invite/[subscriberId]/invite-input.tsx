@@ -11,8 +11,6 @@ export default function InviteLinkInput({
 }) {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(inviteLink);
-
-    alert("Copied to clipboard");
   };
 
   return (
